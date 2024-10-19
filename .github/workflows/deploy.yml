@@ -134,8 +134,15 @@ jobs:
           https://api.render.com/v1/services/srv-cs9bl5aj1k6c73flgcdg/deploys
 
       - name: Wait for deployment to complete
+        run: |
+            deploy_info=$(curl -s -X GET \
+                -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+                https://api.render.com/v1/services/srv-cs9bl5aj1k6c73flgcdg/deploys)
+
+      - name: Wait for deployment to complete
         id: check-deploy-status
         run: |
+          for i in {1..10}; do
             deploy_info=$(curl -s -X GET \
                 -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
                 https://api.render.com/v1/services/srv-cs9bl5aj1k6c73flgcdg/deploys)
@@ -146,14 +153,21 @@ jobs:
             
             if [ "$latest_status" == "live" ]; then
                 echo "Deploy was successful."
+                echo "::set-output name=latest_status::$latest_status"
+                exit 0
             elif [ "$latest_status" == "update_failed" ]; then
                 echo "Deploy failed."
                 exit 1
             else
-                echo "Deploy is in status: $latest_status"
+                echo "Deploy is in status: $latest_status
+                sleep 30
             fi
-            
-            echo "::set-output name=latest_status::$latest_status"
+          done
+      
+          echo "Deployment did not complete in the expected time."
+          exit 1  # Если все попытки исчерпаны, завершаем с ошибкой
+  
+        
 
       - name: Finish if deployment was successful
         if: ${{ steps.check-deploy-status.outputs.latest_status == 'live' }}

@@ -56,18 +56,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
-      - name: Create .env file
-        run: |
-          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
-          echo "JWT_EXPIRES_IN=${{ secrets.JWT_EXPIRES_IN }}" >> .env
-          echo "PGP_URL=${{ secrets.PGP_URL }}" >> .env
-          echo "PGP_URL_ADMIN=${{ secrets.PGP_URL_ADMIN }}" >> .env
-          echo "PORT=${{ secrets.PORT }}" >> .env
-          echo "CLOUD_NAME=${{ secrets.CLOUD_NAME }}" >> .env
-          echo "CLOUD_API_KEY=${{ secrets.CLOUD_API_KEY }}" >> .env
-          echo "CLOUD_API_SECRET=${{ secrets.CLOUD_API_SECRET }}" >> .env
-          echo "ORIGIN_URL=${{ secrets.ORIGIN_URL }}" >> .env
-
       - name: Set up Docker Compose
         run: |
           docker-compose -f docker-compose.yml up

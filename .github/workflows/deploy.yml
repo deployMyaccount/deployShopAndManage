@@ -159,7 +159,7 @@ jobs:
                 echo "Deploy failed."
                 exit 1
             else
-                echo "Deploy is in status: $latest_status
+                echo "Deploy is in status: $latest_status Waiting for 30 seconds..."
                 sleep 30
             fi
           done

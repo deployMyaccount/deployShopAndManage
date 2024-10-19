@@ -22,7 +22,7 @@ jobs:
           sudo apt-get install -y docker-compose
 
       - name: Set up Docker Compose
-        run: docker-compose -f docker-compose.yaml up
+        run: docker-compose -f docker-compose.yml up
 
   # Step 2: Build and push frontend image
   build:

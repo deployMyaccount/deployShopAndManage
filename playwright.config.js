@@ -14,4 +14,5 @@ export default defineConfig({
     viewport: { width: 1280, height: 720 },
     baseURL: baseUrl
   },
+  reporter: [['line'], ['json', { outputFile: 'test-results.txt' }]]
 });

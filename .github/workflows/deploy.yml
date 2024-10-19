@@ -80,7 +80,6 @@ jobs:
           results=$(cat test-results.txt)
           unexpected=$(echo "$results" | grep -oP '"unexpected": \K\d+')
           echo "Unexpected tests: $unexpected"
-          echo "unexpected=$unexpected" >> $GITHUB_ENV
           echo "::set-output name=unexpected::$unexpected"
 
           # Считаем количество неожиданных тестов

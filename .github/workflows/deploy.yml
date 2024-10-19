@@ -58,6 +58,16 @@ jobs:
 
       - name: Set up Docker Compose
         run: docker-compose -f docker-compose.yml up
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
+          PGP_URL: ${{ secrets.PGP_URL }}
+          PGP_URL_ADMIN: ${{ secrets.PGP_URL_ADMIN }}
+          PORT: ${{ secrets.PORT }}
+          CLOUD_NAME: ${{ secrets.CLOUD_NAME }}
+          CLOUD_API_KEY: ${{ secrets.CLOUD_API_KEY }}
+          CLOUD_API_SECRET: ${{ secrets.CLOUD_API_SECRET }}
+          ORIGIN_URL: ${{ secrets.ORIGIN_URL }}
 
   # Step 2: Build and push frontend image
   build:

@@ -8,7 +8,7 @@ export default defineConfig({
     port: 5173,      // Убедитесь, что порт соответствует вашему
     proxy: {
       '/api': {
-        target: 'http://localhost:3005/api',
+        target: 'http://backend:3005/api',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

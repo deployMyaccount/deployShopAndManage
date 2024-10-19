@@ -20,6 +20,36 @@ jobs:
         run: |
           cd backend
           npm install
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
+          PGP_URL: ${{ secrets.PGP_URL }}
+          PGP_URL_ADMIN: ${{ secrets.PGP_URL_ADMIN }}
+          PORT: ${{ secrets.PORT }}
+          CLOUD_NAME: ${{ secrets.CLOUD_NAME }}
+          CLOUD_API_KEY: ${{ secrets.CLOUD_API_KEY }}
+          CLOUD_API_SECRET: ${{ secrets.CLOUD_API_SECRET }}
+          ORIGIN_URL: ${{ secrets.ORIGIN_URL }}
+
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install
+        env:
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          VITE_BASE_URL_IMG: ${{ secrets.VITE_BASE_URL_IMG }}
+          VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
+          DOMAIN: ${{ secrets.DOMAIN }}
+
+      - name: Set tests environment
+        run: |
+          cd tests
+        env:
+          PGP_URL_ADMIN: ${{ secrets.PGP_URL_ADMIN }}
+          PGP_URL: ${{ secrets.PGP_URL }}
+          VITE_BASE_URL: ${{ secrets.VITE_BASE_URL }}
+          ORIGIN_URL: ${{ secrets.ORIGIN_URL }}
+          DOMAIN: ${{ secrets.DOMAIN }}
 
       - name: Install Docker Compose
         run: |

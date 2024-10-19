@@ -132,3 +132,26 @@ jobs:
                 "branch": "main"
               }' \
           https://api.render.com/v1/services/srv-cs9bl5aj1k6c73flgcdg/deploys
+
+      - name: Wait for deployment to complete
+        id: check-deploy-status
+        run: |
+            # Периодическая проверка статуса деплоя
+            deploy_status=""
+            until [ "$deploy_status" = "live" ] || [ "$deploy_status" = "failed" ]; do
+              echo "Checking deployment status..."
+              deploy_status=$(curl -s -X GET \
+                -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+                https://api.render.com/v1/services/srv-cs9bl5aj1k6c73flgcdg | jq -r '.service.deploy.status')
+              echo "Current status: $deploy_status"
+              if [ "$deploy_status" = "failed" ]; then
+                echo "Deployment failed!"
+                exit 1
+              fi
+              sleep 30 # ожидание перед следующей проверкой
+            done
+            echo "Deployment succeeded!"
+
+      - name: Finish if deployment was successful
+        if: ${{ steps.check-deploy-status.outputs.deploy_status == 'live' }}
+        run: echo "Deployment completed successfully!"

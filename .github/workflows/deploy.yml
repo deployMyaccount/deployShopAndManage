@@ -57,17 +57,17 @@ jobs:
           sudo apt-get install -y docker-compose
 
       - name: Set up Docker Compose
-        run: docker-compose -f docker-compose.yml up
-        env:
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
-          JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}
-          PGP_URL: ${{ secrets.PGP_URL }}
-          PGP_URL_ADMIN: ${{ secrets.PGP_URL_ADMIN }}
-          PORT: ${{ secrets.PORT }}
-          CLOUD_NAME: ${{ secrets.CLOUD_NAME }}
-          CLOUD_API_KEY: ${{ secrets.CLOUD_API_KEY }}
-          CLOUD_API_SECRET: ${{ secrets.CLOUD_API_SECRET }}
-          ORIGIN_URL: ${{ secrets.ORIGIN_URL }}
+        run: |
+          export JWT_SECRET="${{ secrets.JWT_SECRET }}"
+          export JWT_EXPIRES_IN="${{ secrets.JWT_EXPIRES_IN }}"
+          export PGP_URL="${{ secrets.PGP_URL }}"
+          export PGP_URL_ADMIN="${{ secrets.PGP_URL_ADMIN }}"
+          export PORT="${{ secrets.PORT }}"
+          export CLOUD_NAME="${{ secrets.CLOUD_NAME }}"
+          export CLOUD_API_KEY="${{ secrets.CLOUD_API_KEY }}"
+          export CLOUD_API_SECRET="${{ secrets.CLOUD_API_SECRET }}"
+          export ORIGIN_URL="${{ secrets.ORIGIN_URL }}"
+          docker-compose -f docker-compose.yml up
 
   # Step 2: Build and push frontend image
   build:

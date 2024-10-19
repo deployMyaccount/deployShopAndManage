@@ -137,7 +137,7 @@ jobs:
         id: check-deploy-status
         run: |
             deploy_info=$(curl -s -X GET \
-                -H "Authorization: Bearer ${secret.RENDER_API_KEY}" \
+                -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
                 https://api.render.com/v1/services/srv-cs9bl5aj1k6c73flgcdg/deploys)
             
             latest_status=$(echo $deploy_info | jq -r '.[0].deploy.status')

@@ -6,13 +6,12 @@ services:
     dockerfilePath: ./frontend/Dockerfile
     dockerContext: ./frontend
     buildCommand: npm install && npm run build
-    startCommand: npm start
     envVars:
       - key: BACKEND_URL
         fromService:
           name: backend
           type: web
-          property: url
+          property: host
       - key: PORT
         value: 5000
 
@@ -23,7 +22,6 @@ services:
     dockerfilePath: ./backend/dockerfile
     dockerContext: ./backend
     buildCommand: npm install
-    startCommand: node server.js
     envVars:
       - key: PORT
         value: 3005

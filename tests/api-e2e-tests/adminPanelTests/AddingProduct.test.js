@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 import { dbConnectAdmin } from "../../../backend/dbConnect";
 import { deleteProduct } from "../../utils/CRUDProduct";
 
-test('Добавление товара', async ({request}) => {
+test.only('Добавление товара', async ({request}) => {
 
     const dataAddingProduct = {
         name: 'Тестовый товар',

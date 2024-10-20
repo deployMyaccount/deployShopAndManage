@@ -1,6 +1,6 @@
 import { expect, test, chromium } from 'playwright/test';
-import { setBrowserCookies } from '../utils/setCookies';
-import { TransactionsPage } from '../classPageObject/userPage/transactionsPage';
+import { setBrowserCookies } from '../../utils/setCookies';
+import { TransactionsPage } from '../../pageObjects/userPage/transactionsPage';
 
 test.describe('Проверка страницы Transactions', () => {
   let browser;
@@ -270,7 +270,7 @@ test.describe('Проверка страницы Transactions', () => {
     await sortCreatedAt.click();
 
     const rowsCreatedAt = transactionPage.getTableBody().locator('tr > td:nth-child(4)');
-    
+
     let allValueTime = [];
     for (let i = 0; i < (await rowsCreatedAt.count()); i++) {
       const amountText = await rowsCreatedAt.nth(i).textContent();

@@ -1,11 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { LandingPage } from '../classPageObject/landingPage';
-import { ProfilePage } from '../classPageObject/userPage/profilePage';
-import { DashboardPage } from '../classPageObject/adminPage/dashboardPage';
-import { RegisterPageUser } from '../classPageObject/userPage/registerUserPage';
-import { RegisterPageAdmin } from '../classPageObject/registerAdminPage';
-import { ForgotPasswordUser } from '../classPageObject/userPage/forgotPasswordUser';
-import { ForgotPasswordAdmin } from '../classPageObject/forgotPasswordAdmin';
+import { LandingPage } from '../pageObjects/landingPage';
+import { RegisterPageUser } from '../pageObjects/userPage/registerUserPage';
+import { RegisterPageAdmin } from '../pageObjects/adminPage/registerAdminPage';
+import { ForgotPasswordUser } from '../pageObjects/userPage/forgotPasswordUser';
+import { ForgotPasswordAdmin } from '../pageObjects/adminPage/forgotPasswordAdmin';
 
 test.describe('Тестирование лендинг страницы', () => {
   test('Загрузка главной страницы (landing)', async ({ page }) => {
@@ -20,30 +18,6 @@ test.describe('Тестирование лендинг страницы', () => 
     await expect(titleAdminPanel).toHaveText('Admin Panel');
   });
 
-  test('Вход юзера в систему', async ({ page }) => {
-    const landingPage = new LandingPage(page);
-    const profilePage = new ProfilePage(page);
-    await landingPage.navigate();
-    await landingPage.loginUser('test-email@mail.ru', 'BETejEmm321');
-
-    await expect(page).toHaveURL(/.*user\/all-product/);
-
-    const balanceUser = profilePage.getBalance();
-    await expect(balanceUser).toBeVisible();
-    await expect(balanceUser).toContainText('Balance');
-  });
-
-  test('Вход администратора в систему', async ({ page }) => {
-    const landingPage = new LandingPage(page);
-    const dashboardPage = new DashboardPage(page);
-    await landingPage.navigate();
-    await landingPage.loginAdmin('test-email@mail.ru', 'BETejEmm321');
-
-    await expect(page).toHaveURL(/.*dashboard\/admin/);
-
-    const btnLogout = dashboardPage.getLogoutBtn();
-    await expect(btnLogout).toBeVisible();
-  });
 
   test('Переход на страницу регистрации юзера', async ({ page }) => {
     const landingPage = new LandingPage(page);

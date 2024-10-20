@@ -1,6 +1,6 @@
 import { expect, test, chromium } from 'playwright/test';
-import { BuyProducts } from '../classPageObject/userPage/buyProducts';
-import { setBrowserCookies } from '../utils/setCookies';
+import { BuyProducts } from '../../pageObjects/userPage/buyProducts';
+import { setBrowserCookies } from '../../utils/setCookies';
 
 test.describe('Проверка страницы покупки товаров', () => {
   let browser;
@@ -239,10 +239,7 @@ test.describe('Проверка страницы покупки товаров',
     if (boundingRigthSlider && trackBox) {
       const startX = trackBox.x;
       const newX = startX + boundingRigthSlider.width * 0.09;
-      await page.mouse.move(
-        boundingRigthSlider.x + boundingRigthSlider.width / 2,
-        boundingRigthSlider.y + boundingRigthSlider.height / 2,
-      );
+      await page.mouse.move(boundingRigthSlider.x + boundingRigthSlider.width / 2, boundingRigthSlider.y + boundingRigthSlider.height / 2);
       await page.mouse.down();
       await page.mouse.move(newX, boundingRigthSlider.y + boundingRigthSlider.height / 2);
       await page.mouse.up();

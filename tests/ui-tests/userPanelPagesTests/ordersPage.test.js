@@ -1,6 +1,6 @@
 import { expect, test, chromium } from 'playwright/test';
-import { setBrowserCookies } from '../utils/setCookies';
-import { OrdersPage } from '../classPageObject/userPage/OrdersPage';
+import { setBrowserCookies } from '../../utils/setCookies';
+import { OrdersPage } from '../../pageObjects/userPage/OrdersPage';
 
 test.describe('Проверка страницы Orders', () => {
   let browser;

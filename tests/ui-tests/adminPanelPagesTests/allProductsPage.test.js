@@ -1,6 +1,6 @@
 import { expect, test, chromium } from 'playwright/test';
-import { setBrowserAdminCookies } from '../utils/setCookies';
-import { AllProductsPage } from '../classPageObject/adminPage/allProductsPage';
+import { setBrowserAdminCookies } from '../../utils/setCookies';
+import { AllProductsPage } from '../../pageObjects/adminPage/allProductsPage';
 
 test.describe('Проверка страницы покупки товаров', () => {
   let browser;

@@ -1,5 +1,5 @@
 import { authCookieAndNewContext } from './authCookieAndNewContext';
-import { AddProductPage } from '../classPageObject/adminPage/addProductPage';
+import { AddProductPage } from '../pageObjects/adminPage/addProductPage';
 
 export const createProduct = async () => {
   const { page, close } = await authCookieAndNewContext();
@@ -21,9 +21,7 @@ export const createProduct = async () => {
   await addProductPage.getInputDescription().fill(valueDescription);
   await addProductPage.getInputQuantity().fill(valueQuantity);
   await addProductPage.getDownloadImgProduct().setInputFiles(pathImg);
-  await addProductPage
-    .getSelectCategory()
-    .selectOption({ label: valueCategory });
+  await addProductPage.getSelectCategory().selectOption({ label: valueCategory });
   await addProductPage.getInputPrice().fill(valuePrice);
   await btnSubmit.click();
   await page.waitForURL(/admin\/all-products/);

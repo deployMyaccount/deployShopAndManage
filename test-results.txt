@@ -1,0 +1,129 @@
+{
+  "config": {
+    "configFile": "E:\\api-market\\playwright.config.js",
+    "rootDir": "E:/api-market/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "line",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.txt"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "E:/api-market/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "",
+        "name": "",
+        "testDir": "E:/api-market/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.45.3",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "ui-e2e-tests\\userTests\\registerUser.test.js",
+      "file": "ui-e2e-tests/userTests/registerUser.test.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Тестирование страницы регистрации, активация аккаунта через письмо в почте",
+          "file": "ui-e2e-tests/userTests/registerUser.test.js",
+          "line": 7,
+          "column": 15,
+          "specs": [
+            {
+              "title": "Регистрация юзера + активация аккаунта",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "status": "passed",
+                      "duration": 15436,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Нет непрочитанных письем с указанной темой, повторная попытка..\n"
+                        },
+                        {
+                          "text": "Нет непрочитанных письем с указанной темой, повторная попытка..\n"
+                        },
+                        {
+                          "text": "http://localhost:5173/verify-email/user?token=a566d07fc7ef2f07a72cddce31ff8f9b90fc3a2abdbe3561ff291175b15cc3bc78434e9fdb9292e2&email=dmitriiletob324@gmail.com\n"
+                        },
+                        {
+                          "text": "http://localhost:5173/verify-email/user?token=a566d07fc7ef2f07a72cddce31ff8f9b90fc3a2abdbe3561ff291175b15cc3bc78434e9fdb9292e2&email=dmitriiletob324@gmail.com\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2024-10-20T23:02:36.947Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "beb91ebc60842442e380-181e220876a8ea831ceb",
+              "file": "ui-e2e-tests/userTests/registerUser.test.js",
+              "line": 8,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2024-10-20T23:02:35.512Z",
+    "duration": 17141.098,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

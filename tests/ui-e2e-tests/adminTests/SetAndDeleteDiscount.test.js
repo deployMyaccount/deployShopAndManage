@@ -1,4 +1,4 @@
-import { AllProductsPage } from '../../classPageObject/adminPage/allProductsPage';
+import { AllProductsPage } from '../../pageObjects/adminPage/allProductsPage';
 import { createProduct } from '../../utils/createUIProduct';
 import { expect, test } from 'playwright/test';
 import { deleteProduct } from '../../utils/CRUDProduct';

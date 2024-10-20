@@ -1,9 +1,9 @@
 import { expect, test } from 'playwright/test';
 import { authCookieAndNewContextUser } from '../../utils/authCookieAndNewContext';
 import { createProduct } from '../../utils/createUIProduct';
-import { BuyProducts } from '../../classPageObject/userPage/buyProducts';
-import { OrdersPage } from '../../classPageObject/userPage/OrdersPage';
-import { DashboardPage } from '../../classPageObject/userPage/dashboardPage';
+import { BuyProducts } from '../../pageObjects/userPage/buyProducts';
+import { OrdersPage } from '../../pageObjects/userPage/OrdersPage';
+import { DashboardPage } from '../../pageObjects/userPage/dashboardPage';
 import { deleteProduct } from '../../utils/CRUDProduct';
 import { updateBalance } from '../../utils/updateBalanceUser';
 
@@ -246,7 +246,7 @@ test.describe('Покупка товара', () => {
 
     const { valueName, close } = await createProduct();
     const { page } = await authCookieAndNewContextUser();
-    
+
     const buyProductsPage = new BuyProducts(page);
     const dashboardPage = new DashboardPage(page);
 
@@ -283,7 +283,7 @@ test.describe('Покупка товара', () => {
 
     const quantityInput = addingProductInCart.locator('..').locator('input');
     await quantityInput.fill('5');
-    
+
     const btnUpdateQuantity = addingProductInCart.locator('..').locator('.update-btn');
     await btnUpdateQuantity.click();
 

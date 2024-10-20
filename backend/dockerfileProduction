@@ -4,8 +4,8 @@ COPY package*.json ./
 COPY ./package-lock.json ./
 RUN npm install
 COPY . .
-COPY --from=itqa47/frontend:latest ./app/dist ./app/public
-COPY --from=itqa47/frontend:latest ./app/public/img ./app/public/img
+COPY --from=itqa47/frontend:latest /app/dist /app/public
+COPY --from=itqa47/frontend:latest /app/public/img /app/public/img
 CMD ["node", "server.js"]
 EXPOSE 3005
 RUN mkdir -p /app/public/uploads

@@ -19,9 +19,10 @@ services:
     name: backend
     runtime: docker
     plan: free
-    dockerfilePath: ./backend/dockerfile
+    dockerfilePath: ./backend/dockerfileProduction
     dockerContext: ./backend
     buildCommand: npm install
+    startCommand: node server.js
     envVars:
       - key: PORT
         value: 3005

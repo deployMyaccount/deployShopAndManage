@@ -1,21 +1,5 @@
 services:
   - type: web
-    name: frontend
-    runtime: docker
-    plan: free
-    dockerfilePath: ./frontend/Dockerfile
-    dockerContext: ./frontend
-    buildCommand: npm install && npm run build
-    envVars:
-      - key: BACKEND_URL
-        fromService:
-          name: backend
-          type: web
-          property: host
-      - key: PORT
-        value: 5000
-
-  - type: web
     name: backend
     runtime: docker
     plan: free

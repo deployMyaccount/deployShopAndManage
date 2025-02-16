@@ -5,7 +5,7 @@ config({ path: './backend/.env' })
 const baseUrl = process.env.VITE_BASE_URL || 'http://localhost:3005';
 
 export default defineConfig({
-  testDir: './tests/api-e2e-tests',
+  testDir: './tests/api-integration-tests',
   timeout: 30000,
   workers: 1,
   use: {

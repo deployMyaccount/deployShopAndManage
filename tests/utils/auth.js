@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = process.env.VITE_BASE_URL || "http://localhost:5173";
+const baseUrl = process.env.VITE_BASE_URL || "http://localhost:3005";
 console.log(baseUrl);
 
 export async function loginUser(email, password) {

@@ -33,7 +33,7 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
+          // echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
           echo "JWT_EXPIRES_IN=${{ secrets.JWT_EXPIRES_IN }}" >> .env
           echo "PGP_URL=${{ secrets.PGP_URL }}" >> .env
           echo "PGP_URL_ADMIN=${{ secrets.PGP_URL_ADMIN }}" >> .env

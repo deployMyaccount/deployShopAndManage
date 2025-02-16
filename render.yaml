@@ -1,45 +1,10 @@
 services:
   - type: web
-    name: frontend
-    runtime: docker
-    plan: free
-    dockerfilePath: ./frontend/Dockerfile
-    dockerContext: ./frontend
-    buildCommand: npm install && npm run build
-    startCommand: npm start
-    envVars:
-      - key: BACKEND_URL
-        fromService:
-          name: backend
-          type: web
-          property: url
-      - key: PORT
-        value: 5000
-
-  - type: web
     name: backend
     runtime: docker
     plan: free
-    dockerfilePath: ./backend/dockerfile
+    dockerfilePath: ./backend/dockerfileProduction
     dockerContext: ./backend
-    buildCommand: npm install
-    startCommand: node server.js
-    envVars:
-      - key: PORT
-        value: 3005
-      - key: JWT_SECRET
-        value: "487bec0b5cd031c5d4907aee14356f8483aa8b95a84c93552e77a362a709a28cb35e1f90aca7a3a0bcef3544607e87b5eb6acc4cb1040c60456fedbc93621dbf"
-      - key: JWT_EXPIRES_IN
-        value: 1d
-      - key: CLOUD_NAME
-        value: dyarhqimg
-      - key: CLOUD_API_KEY
-        value: 134733326371941
-      - key: CLOUD_API_SECRET
-        value: E8vX1VghGXjmFXIyWiFO11lipBc
-      - key: PGP_URL_ADMIN
-        value: "postgresql://db_n2ly_user:AKwivUtLGC5DVfzvWdvkYbIh8kK4zkM6@dpg-cqgnkqiju9rs738dj5ng-a.frankfurt-postgres.render.com/db_n2ly"
-
 
 databases:
   - name: db_n2ly

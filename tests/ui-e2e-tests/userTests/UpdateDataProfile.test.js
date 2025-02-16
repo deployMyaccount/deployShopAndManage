@@ -1,6 +1,6 @@
 import { expect, test } from 'playwright/test';
 import { authCookieAndNewContextUser } from '../../utils/authCookieAndNewContext';
-import { ProfilePage } from '../../classPageObject/userPage/profilePage';
+import { ProfilePage } from '../../pageObjects/userPage/profilePage';
 import { updateProfileUser } from '../../utils/updateProfile';
 
 test('Обновление данных юзера', async () => {

@@ -1,8 +1,8 @@
 import { expect, test } from 'playwright/test';
 import { createProduct } from '../../utils/createUIProduct';
-import { BuyProducts } from '../../classPageObject/userPage/buyProducts';
+import { BuyProducts } from '../../pageObjects/userPage/buyProducts';
 import { authCookieAndNewContext, authCookieAndNewContextUser } from '../../utils/authCookieAndNewContext';
-import { StatsPage } from '../../classPageObject/adminPage/statsPage';
+import { StatsPage } from '../../pageObjects/adminPage/statsPage';
 import { deleteProduct } from '../../utils/CRUDProduct';
 import { updateBalance } from '../../utils/updateBalanceUser';
 

@@ -1,6 +1,6 @@
 import { expect, test, chromium } from 'playwright/test';
-import { setBrowserCookies } from '../utils/setCookies';
-import { DashboardPage } from '../classPageObject/userPage/dashboardPage';
+import { setBrowserCookies } from '../../utils/setCookies';
+import { DashboardPage } from '../../pageObjects/userPage/dashboardPage';
 
 test.describe('Проверка Dashboard', () => {
   let browser;

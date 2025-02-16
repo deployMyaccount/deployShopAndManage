@@ -1,8 +1,8 @@
 import { expect, test } from 'playwright/test';
 import { authCookieAndNewContextUser } from '../../utils/authCookieAndNewContext';
-import { DashboardPage } from '../../classPageObject/userPage/dashboardPage';
-import { AddFundsPage } from '../../classPageObject/userPage/addFundsPage';
-import { TransactionsPage } from '../../classPageObject/userPage/transactionsPage';
+import { DashboardPage } from '../../pageObjects/userPage/dashboardPage';
+import { AddFundsPage } from '../../pageObjects/userPage/addFundsPage';
+import { TransactionsPage } from '../../pageObjects/userPage/transactionsPage';
 
 test('Пополнение баланса', async () => {
   const { page, close } = await authCookieAndNewContextUser();

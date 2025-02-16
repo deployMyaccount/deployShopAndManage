@@ -1,6 +1,6 @@
 import { expect, test } from 'playwright/test';
-import { AllProductsPage } from '../../classPageObject/adminPage/allProductsPage';
-import { EditPage } from '../../classPageObject/userPage/editPage';
+import { AllProductsPage } from '../../pageObjects/adminPage/allProductsPage';
+import { EditPage } from '../../pageObjects/userPage/editPage';
 import { createProduct } from '../../utils/createUIProduct';
 import { deleteProduct } from '../../utils/CRUDProduct';
 

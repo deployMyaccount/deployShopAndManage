@@ -1,9 +1,9 @@
 import { expect, test } from 'playwright/test';
 import { authCookieAndNewContextUser } from '../../utils/authCookieAndNewContext';
 import { createProduct } from '../../utils/createUIProduct';
-import { BuyProducts } from '../../classPageObject/userPage/buyProducts';
-import { DashboardPage } from '../../classPageObject/userPage/dashboardPage';
-import { ProfilePage } from '../../classPageObject/userPage/profilePage';
+import { BuyProducts } from '../../pageObjects/userPage/buyProducts';
+import { DashboardPage } from '../../pageObjects/userPage/dashboardPage';
+import { ProfilePage } from '../../pageObjects/userPage/profilePage';
 import { deleteProduct } from '../../utils/CRUDProduct';
 import { dbConnect } from '../../../backend/dbConnect';
 import { updateBalance } from '../../utils/updateBalanceUser';

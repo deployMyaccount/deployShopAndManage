@@ -1,6 +1,6 @@
 import { expect, test, chromium } from 'playwright/test';
-import { setBrowserAdminCookies } from '../utils/setCookies';
-import { ProfilePage } from '../classPageObject/adminPage/profilePage';
+import { setBrowserAdminCookies } from '../../utils/setCookies';
+import { ProfilePage } from '../../pageObjects/adminPage/profilePage';
 
 test.describe('Страницы Profile', () => {
   let page;
